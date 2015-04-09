@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   root 'logincounter#main'
-  resources :logincounter
+  post 'login' => 'logincounter#login'
+  post 'signup' => 'logincounter#signup'
+  post 'clearData' => 'logincounter#clear'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
