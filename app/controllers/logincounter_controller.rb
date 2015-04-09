@@ -2,6 +2,9 @@ class LogincounterController < ApplicationController
   def main
   end
   def welcome
+    username = params[:username]
+    count = params[:password]
+    @user = User.find_by(:username => username)
   end
   def login
     username = params[:username]
@@ -30,5 +33,9 @@ class LogincounterController < ApplicationController
     end
   end
   def clear
+    @users = User.all
+    @users.each do |user|
+      user.destroy
+    end
   end
 end
