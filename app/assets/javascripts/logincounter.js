@@ -30,11 +30,11 @@ $(document).ready(function() {
 			data: form_data,
 			success: function(response) {
 				if(response.error_code == -1) {
-					$('#login_message').text='The user name should be 5~20 characters long. Please try again.';
+					$('#login_message').html('The user name should be 5~20 characters long. Please try again.');
 				} else if(response.error_code == -2) {
-					$('#login_message').text='The password should be 8~20 characters long. Please try again.';
+					$('#login_message').html('The password should be 8~20 characters long. Please try again.');
 				} else if(response.error_code == -3) {
-					$('#login_message').text='This user name already exists. Please try again.';
+					$('#login_message').html('This user name already exists. Please try again.');
 				} else {
 					//TODO
 				}
