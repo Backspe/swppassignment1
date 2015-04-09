@@ -29,14 +29,15 @@ class LogincounterController < ApplicationController
       render :json => { :error_code => -3 }
     else
       @user = User.create( :username => username, :password => password, :count => 1 )
-      session[:user] = @user
+      session[:user] = @user.username
       render :json => { :user_name => @user.username , :login_count => @user.count }
     end
   end
+  def logout
+    session[:user] = nil
+    render 'main'
+  end
   def clear
-    @users = User.all
-    @users.each do |user|
-      user.destroy
-    end
+    User.delete_all()
   end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'logincounter#main'
   get 'welcome' => 'logincounter#welcome'
+  post 'logout' => 'logincounter#logout'
   post 'login' => 'logincounter#login'
   post 'signup' => 'logincounter#signup'
   post 'clearData' => 'logincounter#clear'

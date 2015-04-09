@@ -41,4 +41,11 @@ $(document).ready(function() {
 			}
 		});
 	});
+	$('#logout').click(function() {
+		$.ajax({
+			type: 'post',
+			url: '/logout',
+		});
+		location.href = '/';
+	});
 });
