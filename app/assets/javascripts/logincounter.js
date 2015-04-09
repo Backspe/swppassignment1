@@ -13,7 +13,7 @@ $(document).ready(function() {
 				if(response.error_code == -4) {
 					$('#login_message').html('Invalid username and password combination. Please try again.');
 				} else {
-					//TODO
+					location.href = '/welcome';
 				}
 			}
 		});
@@ -36,7 +36,7 @@ $(document).ready(function() {
 				} else if(response.error_code == -3) {
 					$('#login_message').html('This user name already exists. Please try again.');
 				} else {
-					//TODO
+					location.href = '/welcome';
 				}
 			}
 		});

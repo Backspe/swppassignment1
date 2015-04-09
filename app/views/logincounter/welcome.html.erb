@@ -1,7 +1,7 @@
 <div id='Message_box'> 
-Welcome <% @user.username %>
+Welcome <%= @user[:username] %>
 <br>
-You have logged in <% @user.count %> times.
+You have logged in <%= @user[:count] %> times.
 </div>
 <div>
 <button id="logout">Logout</button>

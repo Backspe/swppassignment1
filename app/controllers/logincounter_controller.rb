@@ -2,9 +2,8 @@ class LogincounterController < ApplicationController
   def main
   end
   def welcome
-    username = params[:username]
-    count = params[:password]
-    @user = User.find_by(:username => username)
+    @user = User.find_by(:username => session[:user])
+
   end
   def login
     username = params[:username]
@@ -13,6 +12,7 @@ class LogincounterController < ApplicationController
     if @user
       @user.count += 1
       @user.save
+      session[:user] = @user.username
       render :json => { :user_name => @user.username , :login_count => @user.count }
     else
       render :json => { :error_code => -4 }
@@ -29,6 +29,7 @@ class LogincounterController < ApplicationController
       render :json => { :error_code => -3 }
     else
       @user = User.create( :username => username, :password => password, :count => 1 )
+      session[:user] = @user
       render :json => { :user_name => @user.username , :login_count => @user.count }
     end
   end
