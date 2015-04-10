@@ -2,8 +2,11 @@ class LogincounterController < ApplicationController
   def main
   end
   def welcome
-    @user = User.find_by(:username => session[:user])
-
+    if session[:user]
+      @user = User.find_by(:username => session[:user])
+    else
+      redirect_to '/'
+    end
   end
   def login
     username = params[:username]
@@ -39,5 +42,6 @@ class LogincounterController < ApplicationController
   end
   def clear
     User.delete_all()
+    session[:user] = nil
   end
 end
