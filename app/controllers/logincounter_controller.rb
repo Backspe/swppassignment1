@@ -1,4 +1,5 @@
 class LogincounterController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   def main
   end
   def welcome
