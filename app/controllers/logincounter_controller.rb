@@ -44,5 +44,6 @@ class LogincounterController < ApplicationController
   def clear
     User.delete_all()
     session[:user] = nil
+    render 'main'
   end
 end
